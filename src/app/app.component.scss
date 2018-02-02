@@ -9,3 +9,21 @@
       margin-right: 11px;
   }
 }
+
+
+  small {
+    color: #333;
+  }
+  .logo {
+    font: 24px 'Arial Narrow', sans-serif;/* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
+    color: #fefefe;
+    text-transform: uppercase;
+    color: #dc006c;
+    margin-right: -38px;
+   /* using Prefix free */
+    display: inline-block;/* required for transform */
+    z-index: 10;/* stack 1st word on top */
+  }
+
+
+  

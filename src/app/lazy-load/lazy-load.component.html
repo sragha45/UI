@@ -1,0 +1,16 @@
+<clr-tree-node>
+  <clr-icon shape = "cloud-scale"></clr-icon>
+  Clusters
+  <ng-template [(clrIfExpanded)]='exapanded'>
+    <clr-tree-node *ngFor="let cluster of clusters">
+      <clr-icon shape="rack-server"></clr-icon>
+        {{ cluster.clusterName }}
+        <ng-template [(clrIfExpanded)]='cluster.showChild'>
+          <clr-tree-node *ngFor="let host of cluster.hosts">
+            <clr-icon shape ="host"></clr-icon>
+              {{ host.hostName }}
+          </clr-tree-node>
+        </ng-template>
+    </clr-tree-node>
+  </ng-template>
+</clr-tree-node>

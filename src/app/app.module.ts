@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
+import { LazyLoadComponent } from './lazy-load/lazy-load.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AboutComponent,
-        HomeComponent
+        HomeComponent,
+        LazyLoadComponent
     ],
     imports: [
         BrowserAnimationsModule,
