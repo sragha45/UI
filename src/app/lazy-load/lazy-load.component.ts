@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClusterType } from 'app/lazy-load/lazy-load-cluster-type';
 
 @Component({
   selector: 'app-lazy-load',
@@ -26,7 +27,7 @@ export class LazyLoadComponent implements OnInit {
   }
 
 
-  clusters: any[] = [
+  clusters: ClusterType[] = [
     {
       clusterName: "Cluster1",
       showChild: false,
