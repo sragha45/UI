@@ -3,6 +3,8 @@
 class Hosts{
     public hostName: string;
     public isProvider: boolean;
+    public showVM: boolean;
+    public vmList?: string[];               // Can be empty for providers. 
 }
 
 export class ClusterType {

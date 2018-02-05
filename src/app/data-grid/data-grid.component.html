@@ -1,18 +1,54 @@
+<h1>
+  {{ isProvider ? "Provider": "Consumer" }}
+</h1>
+
 <div *ngIf="isProvider">
   <clr-datagrid>
+      <!-- <div class = "row">
+          <div class = "col-xs-2">
+     -->
 
-    <clr-dg-column> AU </clr-dg-column>
+      <!-- The rows are not properly aligned with the cells. They overlap each other and the contents get scrambled on top of each other. 
+      TODO: Fix the formatting and the alignment. Also you need to increase the size of the datagrid. Please check. -->
+
+
+      <clr-dg-column> PMem Region UUID </clr-dg-column>
+     <!-- </div> -->
+     <!-- <div class = "col-xs-3"> -->
     <clr-dg-column> SIZE OF AU </clr-dg-column>
-    <clr-dg-column> ALLOCATED </clr-dg-column>
-    <clr-dg-column> CONSUMER LIST </clr-dg-column>
-    <ng-container *ngFor = "let detail of dummy">
-    <div *ngIf = "hostIP == detail.hostIP">
-      <clr-dg-row *ngFor = "let x of detail.AUDetails">
-        <clr-dg-cell>{{ x.ip }} </clr-dg-cell>
-        <clr-dg-cell> {{ x.au }} </clr-dg-cell>
-        <clr-dg-cell> {{ "Allocated details goes here" }} </clr-dg-cell>
-        <clr-dg-cell> {{ "Consumer list goes here" }} </clr-dg-cell>
+    <!-- </div> -->
+    <!-- <div class = "col-xs-4"> -->
 
+    <clr-dg-column>  Freed / Allocated </clr-dg-column>
+    <!-- </div> -->
+    <!-- <div class = "col-xs-2"> -->
+    <clr-dg-column> Consumer List </clr-dg-column>
+    <!-- </div> -->
+    <!-- <div class = "col-xs-2"> -->
+    <clr-dg-column> Mem Handler </clr-dg-column>
+    <!-- </div>
+    </div> -->
+    <ng-container *ngFor = "let provider of dummyProviders">
+    <div *ngIf = "hostIP == provider.ip">
+      <clr-dg-row *ngFor = "let detail of provider.details">
+        <!-- <div class = "row">
+          <div class = "col-xs-2"> -->
+        
+        <clr-dg-cell>{{ detail.pMemUUID }} </clr-dg-cell>
+        <!-- </div>
+        <div class = "col-xs-4"> -->
+        <clr-dg-cell> {{ detail.sizeOfAU }} </clr-dg-cell>
+        <!-- </div>
+        <div class = "col-xs-2"> -->
+        <clr-dg-cell> {{ detail.freedOrAllocated }} </clr-dg-cell>
+        <!-- </div>
+        <div class = "col-xs-2"> -->
+        <clr-dg-cell> {{ detail.consumerList }} </clr-dg-cell>
+        <!-- </div>
+        <div class = "col-xs-3"> -->
+        <clr-dg-cell> {{ detail.memHandler }} </clr-dg-cell>
+      <!-- </div>
+        </div> -->
       </clr-dg-row>
     </div>
   </ng-container>
@@ -23,16 +59,18 @@
 
 <div *ngIf="!isProvider">
   <clr-datagrid>
-    <clr-dg-column> PROVIDER LIST </clr-dg-column>
-    <clr-dg-column> AU </clr-dg-column>
-    <clr-dg-column> VM </clr-dg-column>
-    <ng-container *ngFor="let detail of dummy">
+    <clr-dg-column> Region UUID </clr-dg-column>
+    <clr-dg-column> Provider </clr-dg-column>
+    <clr-dg-column> VM ID </clr-dg-column>
+    <clr-dg-column> Kernel Cache AU </clr-dg-column>
+    <ng-container *ngFor="let consumer of dummyConsumers">
 
-    <div *ngIf = "hostIP == detail.hostIP">
-      <clr-dg-row *ngFor="let x of detail.AUDetails">
-        <clr-dg-cell>{{ "PROVIDER LIST GOES HERE" }} </clr-dg-cell>
-        <clr-dg-cell> {{ x.au }} </clr-dg-cell>
-        <clr-dg-cell> {{ x.vm }} </clr-dg-cell>
+    <div *ngIf = "hostIP == consumer.ip">
+      <clr-dg-row *ngFor = "let x of consumer.details">
+        <clr-dg-cell>{{ x.pMemUUID }} </clr-dg-cell>
+        <clr-dg-cell>{{ x.providerList }} </clr-dg-cell>
+        <clr-dg-cell> {{ x.vmID }} </clr-dg-cell>
+        <clr-dg-cell> {{ x.kernelCache }} </clr-dg-cell>
 
       </clr-dg-row>
     </div>

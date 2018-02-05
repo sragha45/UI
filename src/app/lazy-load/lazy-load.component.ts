@@ -37,7 +37,7 @@ export class LazyLoadComponent implements OnInit {
     
   }
 
-  logToConsole(event, str) {
+  hostSelected(event, str) {
    // console.log(str);
     this.notifier.emit([str.hostName, str.isProvider]);
   }
@@ -56,18 +56,26 @@ export class LazyLoadComponent implements OnInit {
           {
             hostName: '172.21.33.21',
             isProvider: false,
+            showVM: false,
+            vmList: ["vm1", "vm2", "dummy"]
           },
           {
             hostName: '172.21.34.156',
-            isProvider: false
+            showVM: false,
+            isProvider: false,
+            vmList: ["CMC"]
           },
           {
             hostName: '198.168.21.44',
-            isProvider: true
+            showVM: false,
+            isProvider: true,
+            vmList: []
           },
           {
             hostName: '192.168.24.37',
-            isProvider: true
+            showVM: false,
+            isProvider: true,
+            vmList: []
           }
         ]
   
@@ -78,19 +86,27 @@ export class LazyLoadComponent implements OnInit {
         hosts: [
           {
             hostName: '172.21.33.21',
-            isProvider: false
+            isProvider: false,
+            showVM: false,
+            vmList: []
           },
           {
             hostName: '172.21.34.156',
-            isProvider: false
+            isProvider: false,
+            showVM: false,
+            vmList: []
           },
           {
             hostName: '198.168.21.44',
-            isProvider: true
+            isProvider: true,
+            showVM: false,
+            vmList: []
           },
           {
             hostName: '192.168.24.37',
-            isProvider: true
+            isProvider: true,
+            showVM: false,
+            vmList: []
           }
         ]
       }
