@@ -6,29 +6,46 @@
         <span class="title">Clarity</span>
       </a>
     </div> -->
-      <!-- <div class="header-nav" [clr-nav-level]="1">
+  <!-- <div class="header-nav" [clr-nav-level]="1">
           <a class="nav-link" href="#" [routerLink]="['/home']" routerLinkActive="active"><span class="nav-text">Home</span></a>
           <a class="nav-link" href="#" [routerLink]="['/about']" routerLinkActive="active"><span class="nav-text">About</span></a>
       </div> -->
-    <!-- <div class="header-actions">
+  <!-- <div class="header-actions">
     </div>
   </clr-header>
   <div class="content-container"> -->
-    <!-- <div class="content-area">
+  <!-- <div class="content-area">
       <router-outlet></router-outlet>
     </div> -->
   <!-- </div> -->
 
-  <header class="header header-6">
-    <h1 class="logo">
-      <span class="word1"> DISTRIBUTED MEMORY MANAGEMENT </span>
-    </h1>
-  </header>
-  
-  <div class="content-container sidenav">
 
-     <app-lazy-load>Loading lazy app</app-lazy-load>
-     
-   </div>
-   
+  <header class="header-6">
+    <div class = "branding">
+      <a class = "nav-link">
+        <clr-icon shape = "vm-bug"></clr-icon>
+        <span class = "title">Distributed Memory Management</span>
+      </a>
+    </div>
+    <div class = "header-nav">
+      <a class = "active nav-link"><span class = "nav-text"> Summary </span></a>
+      <a class = "nav-link"><span class = "nav-text"> Tab 2</span></a>
+    </div>
+  </header>
+
+  <div class="content-container">
+    <nav class="sidenav">
+      <div class="content-area">
+        <app-lazy-load (notifier)="toggleVisibilityOfHostDetails($event)"> Loading Lazy App</app-lazy-load>
+      </div>
+    </nav>
+
+    <div class="leftMargin">
+      <div *ngIf="isHostDetailsVisible">
+        <app-data-grid [isProvider] = "isHostaProvider" [hostIP] = "hostIPAddress">Grid Data</app-data-grid>
+      </div>
+    </div>
+
+  </div>
+
 </clr-main-container>

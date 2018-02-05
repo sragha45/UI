@@ -9,13 +9,15 @@ import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { LazyLoadComponent } from './lazy-load/lazy-load.component';
+import { DataGridComponent } from './data-grid/data-grid.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AboutComponent,
         HomeComponent,
-        LazyLoadComponent
+        LazyLoadComponent,
+        DataGridComponent
     ],
     imports: [
         BrowserAnimationsModule,

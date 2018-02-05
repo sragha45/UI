@@ -1,0 +1,111 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-data-grid',
+  templateUrl: './data-grid.component.html',
+  styleUrls: ['./data-grid.component.scss']
+})
+
+
+
+export class DataGridComponent implements OnInit {
+
+  @Input()
+  isProvider: false;
+
+  @Input()
+  hostIP: string = "IP not assigned";
+
+  dummy :any[] = [
+    {
+      hostIP: "172.21.33.21",
+      isProvider: false,
+      AUDetails: [
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        }
+      ]
+    },
+    {
+      hostIP: "172.21.34.156",
+      isProvider: false,
+      AUDetails: [
+        {
+          ip: "87.88.22.56",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "154.18.1.2",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "2.68.5.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        }
+      ]
+    },
+    {
+      hostIP: "198.168.21.44",
+      isProvider: true,
+      AUDetails: [
+        {
+          ip: "192.168.24.37",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        }
+      ]  
+    },
+    {
+      hostIP: "192.168.24.37",
+      isProvider: true,
+      AUDetails: [
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        },
+        {
+          ip: "192.168.51.21",
+          au: "23uerd:fg2dfk:4545:85klsjdf",
+          vm: "myVM"
+        }
+      ]
+    }
+  ]
+
+  constructor() {  }
+
+  ngOnInit() {
+  }
+
+}

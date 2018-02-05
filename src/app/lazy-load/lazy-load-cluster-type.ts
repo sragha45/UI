@@ -1,3 +1,5 @@
+//Type definition of the Clusters. 
+
 class Hosts{
     public hostName: string;
     public isProvider: boolean;

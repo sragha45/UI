@@ -1,0 +1,41 @@
+<div *ngIf="isProvider">
+  <clr-datagrid>
+
+    <clr-dg-column> AU </clr-dg-column>
+    <clr-dg-column> SIZE OF AU </clr-dg-column>
+    <clr-dg-column> ALLOCATED </clr-dg-column>
+    <clr-dg-column> CONSUMER LIST </clr-dg-column>
+    <ng-container *ngFor = "let detail of dummy">
+    <div *ngIf = "hostIP == detail.hostIP">
+      <clr-dg-row *ngFor = "let x of detail.AUDetails">
+        <clr-dg-cell>{{ x.ip }} </clr-dg-cell>
+        <clr-dg-cell> {{ x.au }} </clr-dg-cell>
+        <clr-dg-cell> {{ "Allocated details goes here" }} </clr-dg-cell>
+        <clr-dg-cell> {{ "Consumer list goes here" }} </clr-dg-cell>
+
+      </clr-dg-row>
+    </div>
+  </ng-container>
+
+  </clr-datagrid>
+</div>
+
+
+<div *ngIf="!isProvider">
+  <clr-datagrid>
+    <clr-dg-column> PROVIDER LIST </clr-dg-column>
+    <clr-dg-column> AU </clr-dg-column>
+    <clr-dg-column> VM </clr-dg-column>
+    <ng-container *ngFor="let detail of dummy">
+
+    <div *ngIf = "hostIP == detail.hostIP">
+      <clr-dg-row *ngFor="let x of detail.AUDetails">
+        <clr-dg-cell>{{ "PROVIDER LIST GOES HERE" }} </clr-dg-cell>
+        <clr-dg-cell> {{ x.au }} </clr-dg-cell>
+        <clr-dg-cell> {{ x.vm }} </clr-dg-cell>
+
+      </clr-dg-row>
+    </div>
+    </ng-container>
+  </clr-datagrid>
+</div>
