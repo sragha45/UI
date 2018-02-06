@@ -13,7 +13,10 @@ export class LazyLoadComponent implements OnInit {
   expanded: boolean = false;
 
   @Output() 
-  notifier: EventEmitter<any> = new EventEmitter();
+  hostNotifier: EventEmitter<any> = new EventEmitter();
+
+  @Output()
+  vmNotifier: EventEmitter<string> = new EventEmitter();
 
   clusters: ClusterType[];
 
@@ -39,7 +42,11 @@ export class LazyLoadComponent implements OnInit {
 
   hostSelected(event, str) {
    // console.log(str);
-    this.notifier.emit([str.hostName, str.isProvider]);
+    this.hostNotifier.emit([str.hostName, str.isProvider]);
+  }
+
+  vmSelected(event, str) {
+    this.vmNotifier.emit(str)
   }
 
   setIcon(isProvider : boolean) {

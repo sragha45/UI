@@ -33,7 +33,7 @@
     <nav class="sidenav">
       <div class="content-area">
       
-        <app-lazy-load (notifier)="toggleVisibilityOfHostDetails($event)"> Loading Lazy App</app-lazy-load>
+        <app-lazy-load (hostNotifier)="toggleVisibilityOfHostDetails($event)" (vmNotifier) = "toggleVisibilityOfVMDetails($event)"> Loading Lazy App</app-lazy-load>
       
       </div>
     </nav>
@@ -45,7 +45,7 @@
             <!-- Hello -->
             
               <div *ngIf="isHostDetailsVisible">
-                <app-data-grid [isProvider]="isHostaProvider" [hostIP]="hostIPAddress">Grid Data</app-data-grid>
+                <app-data-grid  [toggle] = "toggleValue" [id] = "getAppropriateID()">Grid Data</app-data-grid>
             
             </div>
           </clr-tab-content>

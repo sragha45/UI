@@ -14,8 +14,10 @@
         <clr-tree-node *ngFor="let host of cluster.hosts" (click)="hostSelected($event, host)">
           <clr-icon [attr.shape]="setIcon(host.isProvider)"></clr-icon>
           <a class="nav-link"> {{ host.hostName }} </a>
+
           <ng-template [(clrIfExpanded)]="host.showVM">
-              <clr-tree-node *ngFor="let vm of host.vmList">
+
+              <clr-tree-node *ngFor="let vm of host.vmList" (click) = "vmSelected($event, vm); $event.stopPropagation()">
                 <clr-icon shape ="vm"></clr-icon>
                 <a class="nav-link"> {{ vm }} </a>
               </clr-tree-node>

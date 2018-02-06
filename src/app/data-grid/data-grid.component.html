@@ -1,25 +1,25 @@
 <h1>
-  {{ isProvider ? "Provider": "Consumer" }}
+  {{ toggle ? (toggle == 1 ? "Provider" : "VM") : "Consumer" }}
 </h1>
 
-<div *ngIf="isProvider">
+<div *ngIf="toggle == 1">
   <clr-datagrid>
-      <!-- <div class = "row">
+    <!-- <div class = "row">
           <div class = "col-xs-2">
      -->
 
-      <!-- The rows are not properly aligned with the cells. They overlap each other and the contents get scrambled on top of each other. 
+    <!-- The rows are not properly aligned with the cells. They overlap each other and the contents get scrambled on top of each other. 
       TODO: Fix the formatting and the alignment. Also you need to increase the size of the datagrid. Please check. -->
 
 
-      <clr-dg-column> PMem Region UUID </clr-dg-column>
-     <!-- </div> -->
-     <!-- <div class = "col-xs-3"> -->
+    <clr-dg-column> PMem Region UUID </clr-dg-column>
+    <!-- </div> -->
+    <!-- <div class = "col-xs-3"> -->
     <clr-dg-column> SIZE OF AU </clr-dg-column>
     <!-- </div> -->
     <!-- <div class = "col-xs-4"> -->
 
-    <clr-dg-column>  Freed / Allocated </clr-dg-column>
+    <clr-dg-column> Freed / Allocated </clr-dg-column>
     <!-- </div> -->
     <!-- <div class = "col-xs-2"> -->
     <clr-dg-column> Consumer List </clr-dg-column>
@@ -28,36 +28,54 @@
     <clr-dg-column> Mem Handler </clr-dg-column>
     <!-- </div>
     </div> -->
-    <ng-container *ngFor = "let provider of dummyProviders">
-    <div *ngIf = "hostIP == provider.ip">
-      <clr-dg-row *ngFor = "let detail of provider.details">
-        <!-- <div class = "row">
+    <ng-container *ngFor="let provider of dummyProviders">
+      <div *ngIf="id == provider.ip">
+        <clr-dg-row *ngFor="let detail of provider.details">
+          <!-- <div class = "row">
           <div class = "col-xs-2"> -->
-        
-        <clr-dg-cell>{{ detail.pMemUUID }} </clr-dg-cell>
-        <!-- </div>
+
+          <clr-dg-cell>{{ detail.pMemUUID }} </clr-dg-cell>
+          <!-- </div>
         <div class = "col-xs-4"> -->
-        <clr-dg-cell> {{ detail.sizeOfAU }} </clr-dg-cell>
-        <!-- </div>
+          <clr-dg-cell> {{ detail.sizeOfAU }} </clr-dg-cell>
+          <!-- </div>
         <div class = "col-xs-2"> -->
-        <clr-dg-cell> {{ detail.freedOrAllocated }} </clr-dg-cell>
-        <!-- </div>
+          <clr-dg-cell> {{ detail.freedOrAllocated }} </clr-dg-cell>
+          <!-- </div>
         <div class = "col-xs-2"> -->
-        <clr-dg-cell> {{ detail.consumerList }} </clr-dg-cell>
-        <!-- </div>
+          <clr-dg-cell> {{ detail.consumerList }} </clr-dg-cell>
+          <!-- </div>
         <div class = "col-xs-3"> -->
-        <clr-dg-cell> {{ detail.memHandler }} </clr-dg-cell>
-      <!-- </div>
+          <clr-dg-cell> {{ detail.memHandler }} </clr-dg-cell>
+          <!-- </div>
         </div> -->
-      </clr-dg-row>
-    </div>
-  </ng-container>
+        </clr-dg-row>
+      </div>
+
+    </ng-container>
 
   </clr-datagrid>
 </div>
 
 
-<div *ngIf="!isProvider">
+<div *ngIf="toggle == 2">
+  <clr-datagrid>
+    <clr-dg-column> Provider ID </clr-dg-column>
+    <clr-dg-column> AU region UUID </clr-dg-column>
+
+    <ng-container *ngFor="let v of dummyVMs">
+      
+      <div *ngIf="id == v.vmID">
+        <clr-dg-row *ngFor="let x of v.details">
+          <clr-dg-cell> {{ x.providerIP }} </clr-dg-cell>
+          <clr-dg-cell> {{ x.regionUUID }} </clr-dg-cell>
+        </clr-dg-row>
+      </div>
+    </ng-container>
+  </clr-datagrid>
+</div>
+
+<div *ngIf="toggle == 0">
   <clr-datagrid>
     <clr-dg-column> Region UUID </clr-dg-column>
     <clr-dg-column> Provider </clr-dg-column>
@@ -65,15 +83,15 @@
     <clr-dg-column> Kernel Cache AU </clr-dg-column>
     <ng-container *ngFor="let consumer of dummyConsumers">
 
-    <div *ngIf = "hostIP == consumer.ip">
-      <clr-dg-row *ngFor = "let x of consumer.details">
-        <clr-dg-cell>{{ x.pMemUUID }} </clr-dg-cell>
-        <clr-dg-cell>{{ x.providerList }} </clr-dg-cell>
-        <clr-dg-cell> {{ x.vmID }} </clr-dg-cell>
-        <clr-dg-cell> {{ x.kernelCache }} </clr-dg-cell>
+      <div *ngIf="id == consumer.ip">
+        <clr-dg-row *ngFor="let x of consumer.details">
+          <clr-dg-cell>{{ x.pMemUUID }} </clr-dg-cell>
+          <clr-dg-cell>{{ x.providerList }} </clr-dg-cell>
+          <clr-dg-cell> {{ x.vmID }} </clr-dg-cell>
+          <clr-dg-cell> {{ x.kernelCache }} </clr-dg-cell>
 
-      </clr-dg-row>
-    </div>
+        </clr-dg-row>
+      </div>
     </ng-container>
   </clr-datagrid>
 </div>

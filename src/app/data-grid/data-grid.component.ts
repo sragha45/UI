@@ -11,10 +11,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DataGridComponent implements OnInit {
 
   @Input()
-  isProvider: false;
+  toggle;
 
-  @Input()
-  hostIP: string = "IP not assigned";
+  @Input() 
+  id;
+  
 
   // dummy :any[] = [
   //   {
@@ -159,7 +160,7 @@ export class DataGridComponent implements OnInit {
         }
       ]
     }
-  ]
+  ];
 
   dummyConsumers: any[] = [
     {
@@ -208,7 +209,47 @@ export class DataGridComponent implements OnInit {
         }
       ]
     }
+  ];
+
+  dummyVMs: any[] = [
+    {
+      vmID: "vm1",
+      details: [
+        {
+          providerIP: "provider IP goes here",
+          regionUUID: "region UUID goes here",
+        }
+      ]
+    },
+    {
+      vmID: "vm2",
+      details: [
+        {
+          providerIP: "provider IP goes here",
+          regionUUID: "region UUID goes here",
+        }
+      ]
+    },
+    {
+      vmID: "dummy",
+      details: [
+        {
+          providerIP: "provider IP goes here",
+          regionUUID: "region UUID goes here",
+        }
+      ]
+    },
+    {
+      vmID: "CMC",
+      details: [
+        {
+          providerIP: "provider IP goes here",
+          regionUUID: "region UUID goes here",
+        }
+      ]
+    }
   ]
+
 
   constructor() {  }
 
