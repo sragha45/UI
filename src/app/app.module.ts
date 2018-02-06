@@ -10,6 +10,8 @@ import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { LazyLoadComponent } from './lazy-load/lazy-load.component';
 import { DataGridComponent } from './data-grid/data-grid.component';
+import { GraphComponent } from './graph/graph.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
     declarations: [
@@ -17,7 +19,8 @@ import { DataGridComponent } from './data-grid/data-grid.component';
         AboutComponent,
         HomeComponent,
         LazyLoadComponent,
-        DataGridComponent
+        DataGridComponent,
+        GraphComponent,
     ],
     imports: [
         BrowserAnimationsModule,
@@ -25,7 +28,8 @@ import { DataGridComponent } from './data-grid/data-grid.component';
         FormsModule,
         HttpModule,
         ClarityModule,
-        ROUTING
+        ROUTING,
+        ChartsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

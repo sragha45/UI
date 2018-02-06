@@ -1,0 +1,12 @@
+<p>
+  graph works!
+</p>
+
+<div style="display: block; width: 700px; height: 700px;">
+  <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+</div>
