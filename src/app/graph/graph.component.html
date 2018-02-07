@@ -2,11 +2,16 @@
   graph works!
 </p>
 
-<div style="display: block; width: 700px; height: 700px;">
-  <canvas baseChart
-              [data]="doughnutChartData"
-              [labels]="doughnutChartLabels"
-              [chartType]="doughnutChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+<div *ngIf="toggleValue == 3">
+  <div style="display: block; width: 700px; height: 700px;">
+    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</div>
+
+<div *ngIf="toggleValue == 4">
+  <div style="display: block; width: 700px; height: 700px;">
+    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+  </div>
 </div>

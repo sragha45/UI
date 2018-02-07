@@ -250,6 +250,18 @@ export class DataGridComponent implements OnInit {
     }
   ]
 
+  getHeading() {
+    if(this.toggle == 1){
+      return "Provider";
+    }
+    else if(this.toggle == 2){
+      return "VM";
+    }
+    else if(this.toggle == 0) {
+      return "Consumer";
+    }
+  }
+
 
   constructor() {  }
 

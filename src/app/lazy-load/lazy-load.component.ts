@@ -20,6 +20,9 @@ export class LazyLoadComponent implements OnInit {
 
   clusters: ClusterType[];
 
+  @Output()
+  clusterNotifier: EventEmitter<string> = new EventEmitter();
+
 
   constructor() { }
 
@@ -47,6 +50,11 @@ export class LazyLoadComponent implements OnInit {
 
   vmSelected(event, str) {
     this.vmNotifier.emit(str)
+  }
+
+  clusterSelected(event, str) {
+    // console.log(str.clusterName);
+    this.clusterNotifier.emit(str.clusterName);
   }
 
   setIcon(isProvider : boolean) {

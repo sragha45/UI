@@ -33,7 +33,7 @@
     <nav class="sidenav">
       <div class="content-area">
       
-        <app-lazy-load (hostNotifier)="toggleVisibilityOfHostDetails($event)" (vmNotifier) = "toggleVisibilityOfVMDetails($event)"> Loading Lazy App</app-lazy-load>
+        <app-lazy-load (clusterNotifier) = "toggleVisibilityOfClusterDetails($event)" (hostNotifier)="toggleVisibilityOfHostDetails($event)" (vmNotifier) = "toggleVisibilityOfVMDetails($event)"> Loading Lazy App</app-lazy-load>
       
       </div>
     </nav>
@@ -44,16 +44,18 @@
           <clr-tab-content id="content1" *clrIfActive = "true">
             <!-- Hello -->
             
+            <div *ngIf= "toggleValue == 3">
+              <app-graph [toggleValue] = "toggleValue"> Graph is loading... </app-graph>
+            </div>
               <div *ngIf="isHostDetailsVisible">
                 <app-data-grid  [toggle] = "toggleValue" [id] = "getAppropriateID()">Grid Data</app-data-grid>
-            
             </div>
           </clr-tab-content>
         </clr-tab>
         <clr-tab>
           <button clrTabLink> Performance </button>
           <clr-tab-content *clrIfActive>
-            <div style = "margin-top: 20px"> <app-graph>Graph to be soon implemented here </app-graph></div>
+            <div style = "margin-top: 20px"> <app-graph [toggleValue] = "4" >Graph to be soon implemented here </app-graph></div>
           </clr-tab-content>
         </clr-tab>
 

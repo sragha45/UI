@@ -5,13 +5,13 @@
 
   <ng-template [(clrIfExpanded)]='exapanded'>
 
-    <clr-tree-node *ngFor="let cluster of clusters">
+    <clr-tree-node *ngFor="let cluster of clusters" (click) = "clusterSelected($event, cluster)">
       <clr-icon shape="rack-server"></clr-icon>
       <a class="nav-link">{{ cluster.clusterName }}</a>
 
       <ng-template [(clrIfExpanded)]='cluster.showChild'>
 
-        <clr-tree-node *ngFor="let host of cluster.hosts" (click)="hostSelected($event, host)">
+        <clr-tree-node *ngFor="let host of cluster.hosts" (click)="hostSelected($event, host); $event.stopPropagation()">
           <clr-icon [attr.shape]="setIcon(host.isProvider)"></clr-icon>
           <a class="nav-link"> {{ host.hostName }} </a>
 

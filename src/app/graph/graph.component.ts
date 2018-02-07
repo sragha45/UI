@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-graph',
@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit {
+
+  @Input()
+  toggleValue: number;
+
   
-  public doughnutChartLabels:string[] = ['Memory', 'NetworkMemory', 'Disk'];
+  public doughnutChartLabels:string[] = ["Hits","Remote swapout", "Local disk swapouts"];
   public doughnutChartData:number[] = [350, 450, 100];
   public doughnutChartType:string = 'doughnut';
  
@@ -22,6 +26,10 @@ export class GraphComponent implements OnInit {
 
   constructor() { }
 
+  public pieChartLabels:string[] = ['Memory', 'NetworkMemory', 'Disk'];
+  public pieChartData:number[] = [300, 500, 100];
+  public pieChartType:string = 'pie';
+ 
   ngOnInit() {
   }
 

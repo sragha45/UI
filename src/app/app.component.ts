@@ -12,6 +12,8 @@ export class AppComponent {
     vmID: string = null;
     isHostaProvider: boolean = false;
     hostIPAddress: string;
+    clusterID: string;
+    isClusterDetailsAvailable: boolean = false;
 
     toggleValue: number;
 
@@ -48,6 +50,13 @@ export class AppComponent {
         this.isVMVisible = true;
         this.isHostaProvider = false;
         this.vmID = vm;
+    }
+
+    toggleVisibilityOfClusterDetails(cluster: string) {
+        if(this.isClusterDetailsAvailable == false) this.isClusterDetailsAvailable = true;
+        this.toggleValue = 3;
+        console.log(cluster);
+        this.clusterID = cluster;
     }
 
     getAppropriateID() {
